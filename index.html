@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue.js</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <h1>BitCoin価格表示</h1>
+        <section v-if="hasError">Error</section>
+        <section v-else>
+        <div v-if="loading">
+          Loading...
+        </div>
+        <ul c-cloak>
+          <li v-for="(rate,currency) in bpi">
+                  {{ currency }} : {{ rate.rate_float | currencyDecimal }}
+          </li>
+        </ul>
+        </section>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
